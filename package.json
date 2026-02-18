@@ -1,7 +1,17 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "name": "strapi-plugin-webhook-button",
+  "description": "Display a button in the content-type view that triggers a webhook.",
+  "license": "MIT",
+  "author": "douwepausma <mail@douwepausma.nl>",
   "keywords": [],
   "type": "commonjs",
+  "strapi": {
+    "kind": "plugin",
+    "name": "webhook-button",
+    "displayName": "Webhook Button",
+    "description": "Display a button in the content-type view that triggers a webhook."
+  },
   "exports": {
     "./package.json": "./package.json",
     "./strapi-admin": {
@@ -55,15 +65,5 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.3",
     "styled-components": "^6.3.9"
-  },
-  "strapi": {
-    "kind": "plugin",
-    "name": "webhook-button",
-    "displayName": "Webhook Button",
-    "description": "Display a button in the content-type view that triggers a webhook."
-  },
-  "name": "strapi-plugin-webhook-button",
-  "description": "Display a button in the content-type view that triggers a webhook.",
-  "license": "MIT",
-  "author": "douwepausma <mail@douwepausma.nl>"
+  }
 }
