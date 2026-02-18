@@ -1,4 +1,4 @@
-# strapi-plugin-webhook-button
+# Strapi Plugin Webhook Button
 
 Add custom buttons to the content-type entry edit view that trigger webhooks.
 
