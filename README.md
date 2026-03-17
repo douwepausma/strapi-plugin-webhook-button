@@ -96,3 +96,5 @@ If you're interested in working on any of these, we'd love to see your contribut
 ## License
 
 MIT
+
+Made in 🇳🇱 by [@douwepausma](https://douwepausma.nl)
