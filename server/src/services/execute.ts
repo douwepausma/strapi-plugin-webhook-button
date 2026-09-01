@@ -25,26 +25,5 @@ export default ({ strapi }) => ({
             console.error('Error executing webhook:', error);
             return { error: 'Failed to execute webhook', details: error.message };
         }
-    },
-
-    async executeNavigation(data) {
-        const config = strapi.config.get('plugin::webhook-button', {}) as Config;
-        const buttonConfig = config.buttons.find(button => button.id === data.buttonConfig.id);
-
-        try {
-            const result = typeof buttonConfig.body === 'function'
-                ? await buttonConfig.body(data.entry)
-                : buttonConfig.body;
-            const url = typeof result === 'string' ? result : result?.url;
-
-            if (!url) {
-                throw new Error('Navigation URL is not defined');
-            }
-
-            return { url };
-        } catch (error) {
-            console.error('Error executing navigation:', error);
-            return { error: 'Failed to execute navigation', details: error.message };
-        }
     }
 });

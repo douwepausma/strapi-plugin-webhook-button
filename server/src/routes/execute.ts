@@ -7,12 +7,4 @@ export default [
       auth: false, // or true if it needs auth
     },
   },
-  {
-    method: 'POST',
-    path: '/resolve',
-    handler: 'execute.executeNavigation',
-    config: {
-      auth: false,
-    },
-  }
 ];
