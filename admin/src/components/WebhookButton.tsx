@@ -17,6 +17,32 @@ export default function WebhookButton(props: ButtonConfig) {
     const [alert, setAlert] = useState<{ variant: 'success' | 'danger', message: string } | null>(null);
 
     const handleClick = () => {
+        if (props.action === 'navigate') {
+        setLoading(true);
+        fetch('/webhook-button/resolve', {
+            method: 'POST',
+            body: JSON.stringify({
+                buttonConfig: props,
+                entry: { contentType: data?.contentType, values: data?.form?.values }
+            })
+        })
+        .then(response => response.json())
+        .then(({ url, error }) => {
+            if (error || !url) throw new Error(error || 'No URL returned');
+            window.open(url, props.newTab === false ? '_self' : '_blank', 'noopener,noreferrer');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            setAlert({ variant: 'danger', message: 'Failed to open page' });
+        })
+        .finally(() => {
+            setLoading(false);
+            setTimeout(() => setAlert(null), 3000);
+        });
+        return;
+    }
+
+
         setLoading(true);
 
         fetch('/webhook-button/execute', {
